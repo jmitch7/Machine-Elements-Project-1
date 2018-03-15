@@ -1,0 +1,510 @@
+%------------------------------------------------------------------------------
+% Beginning of journal.tex
+%------------------------------------------------------------------------------
+%
+% AMS-LaTeX version 2 sample file for journals, based on amsart.cls.
+%
+%        ***     DO NOT USE THIS FILE AS A STARTER.      ***
+%        ***  USE THE JOURNAL-SPECIFIC *.TEMPLATE FILE.  ***
+%
+% Replace amsart by the documentclass for the target journal, e.g., tran-l.
+%
+\documentclass{amsart}
+
+%     If your article includes graphics, uncomment this command.
+\usepackage{graphicx}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+  \parbox{\columnwidth}{\centering
+%    Set fboxsep to 0 so that the actual size of the box will match the
+%    given measurements more closely.
+    \setlength{\fboxsep}{0pt}%
+    \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+  }%
+}
+
+\begin{document}
+
+\title{Machine Elements Hand-in Assignment 1}
+
+%    Information for first author
+\author{Jacob Mitchener}
+%    Address of record for the research reported here
+\address{Department of Mechanical Engineering, Technical University of Denmark, Lyngby, Denmark}
+
+%    General info
+\subjclass[2000]{Primary 54C40, 14E20; Secondary 46E25, 20C20}
+
+\date{January 1, 2001 and, in revised form, June 22, 2001.}
+
+\dedicatory{Hand in date: March 19th, 2018}
+
+\keywords{Differential geometry, algebraic geometry}
+
+%\begin{abstract}
+%This paper is a sample prepared to illustrate the use of the American
+%Mathematical Society's \LaTeX{} document class \texttt{amsart} and
+%publication-specific variants of that class for AMS-\LaTeX{} version 2.
+%\end{abstract}
+
+\maketitle
+PUT ALL UNKNOWNS AT THE BEGINNING
+
+%\section*{This is an unnumbered first-level section head}
+%This is an example of an unnumbered first-level heading.
+
+%% The correct journal style for \specialsection is all uppercase; a known bug
+%% in amsart.cls prevents this, so input must be uppercase until it is fixed.
+%\specialsection*{This is a Special Section Head}
+\specialsection*{\underline{PROBLEM 1: A WORM GEAR}}
+
+\section{\Large{\textbf{Question 1}}}
+Insert Free Body Diagram Here
+
+\section{\Large{\textbf{Question 2}}}
+\begin{align*}
+  \sum M_a = F_r(l_a_b/2) + F_B(l_a_b) &= 0 \\
+  (4800)(0.140/2) + F_B(0.140) &= 0 \\
+  336 + 0.14F_B &= 0 \\
+  \llap{$\rightarrow$\hspace{50pt}} F_B = -2400 N
+\end{align*}
+
+\begin{align*}
+  \sum F_x &= F_A + F_r + F_B = 0 \\
+  F_A &= -F_r - F_B \\
+  F_A &= -4800 + 2400 \\
+  \llap{$\rightarrow$\hspace{50pt}} F_A &= -2400 N
+\end{align*}
+
+
+\section{\Large{\textbf{Question 3}}}
+Insert Free Body Diagram Here
+
+\section{\Large{\textbf{Question 4}}}
+In order to find the values needed to produce the desired diagrams, it is necessary to perform the following calculations.
+
+\begin{center}
+    \textit{Force balance equations}
+\end{center}
+\begin{align*}
+  F_c_x = F_t \\
+  F_c_z + F_d_z = F_r \\
+  F_a = F_d_y + F_c_y \\
+\end{align*}
+
+\begin{center}
+    \textit{Moment balance equations}
+\end{center}
+\begin{align*}
+  F_a(0.150) = F_d_y(0.300) \\
+  F_r(0.150) + F_t(0.043) - F_d_z(0.300) = 0 \\
+\end{align*}
+
+\begin{center}
+    \textit{Solving these equations, we find the following}
+\end{center}
+\begin{align*}
+    F_c_x &= 9300 N \\
+    F_c_z &= 1067 N \\
+    F_c_y &= 1600 N \\
+    F_d_y &= 1600 N \\
+    F_d_z &= 3733 N \\
+\end{align*}
+
+\begin{center}
+  \textit{These values produce the following diagrams}\\
+INSERT SHEAR AND MOMENT DIAGRAMS HERE\\  
+\end{center}
+
+In order to find the torque distribution of the worm shaft, it is necessary to perform the following calculations.
+
+\begin{align*}
+    T_F_y = (0.02)(1600) &= 32 \\
+    T_F_d_y = (0.02)(1600) &= 32 \\
+    T_F_a = (0.023)(2400) &= 55.2 \\
+\end{align*}
+
+INSERT TORQUE DISTRIBUTION DIAGRAM HERE
+
+\section{\Large{\textbf{Question 5}}}
+
+In order to determine the safety against fatigue failure, we must use the following equation.
+\begin{align*}
+    \frac{1}{SF} = \frac{32}{\Pi D^3}\Bigg[\frac{\sqrt{k_t^2M_a^2+0.75K_f_s^2T_a^2}}{\sigma_e} + \frac{\sqrt{k_t^2M_m^2+0.75k_f_s^2T_m^2}}{\sigma_y}\Bigg]
+\end{align*}
+Solving this equation is a matter of determining each of the unknowns individually and then plugging them all into the equation to find the safety factor.
+
+
+\begin{align*}
+    k_f &= 1+q[k_t-1]   &   k_f_s &= 1+q[k_t_s-1] \\
+    k_f &= 1+1[2-1]     &   k_f_s &= 1+1[1.6-1] \\
+    k_f &= 2            &   k_f_s &= 1.6
+\end{align*}
+
+\begin{align*}
+    M_a &= \frac{160000-(-560000)}{2}    &   M_m &= \frac{160000+(-560000)}{2} \\
+    M_a &= 360000                        &   M_m &= -200000 \\
+\end{align*}
+
+\begin{align*}
+    T_a &= \frac{32000 - (-41000.6)}{2} &   T_m &= \frac{32000+(-41600)}{2} \\
+    T_a &= 36800                        &   T_m &= -4800 
+\end{align*}
+
+\begin{align*}
+    \sigma_e' = \sigma_u_t (1/2) &= 500 \\
+    C_l_o_a_d &= 1 \\
+    C_s_i_z_e = 1.189(d)^-^0^.^0^9^7 &= 0.8313 \\
+    C_s_u_r_f = 1.58(1000)^-^0^.^0^8^5 &= 0.8617 \\
+    C_t_e_m_p &= 1 \\
+    C_r_e_a_l &= 0.753
+\end{align*}
+
+\begin{align*}
+    \sigma_e &= C_r_e_a_lC_t_e_m_pC_s_u_r_fC_s_i_z_eC_l_o_a_d\sigma_e' \\
+    \sigma_e &= (0.753)(1)(0.8617)(0.8131)(1)(1000/2) \\
+    \sigma_e &= 269.7
+\end{align*}
+
+\begin{align*}
+    \frac{1}{SF} = \frac{32}{\Pi (40)^3}\Bigg[\frac{\sqrt{2^2(360000)^2+0.75(1.6)^236800^2}}{269.7} + \frac{\sqrt{2^2(-200000)^2+0.75(1.6)^2(-4800)^2}}{500}\Bigg] \\
+\end{align*}
+
+\begin{align*}
+    \llap{$\rightarrow$\hspace{50pt}} SF = 1.807
+\end{align*}
+
+\section{\Large{\textbf{Question 6}}}
+
+\begin{align*}
+    T_m_a_x = \frac{\mu_s\Pi Ld_f^2P_f}{2}
+\end{align*}
+
+\begin{center}
+    \textit{Rearranging, we find the following}
+\end{center}
+
+\begin{align*}
+    P_f = \frac{2T_m_a_x}{\mu_s\Pi Ld_f^2}
+\end{align*}
+
+\begin{align*}
+    T &= P/n \\
+    T &= 12500/154.61 \\
+    T &= 80.926
+\end{align*}
+
+\begin{align*}
+    T_m_a_x &= (SF)(T) \\
+    T_m_a_x &= (1.8)(80.926) \\
+    T_m_a_x &= 145.667
+\end{align*}
+
+\begin{align*}
+    P_f &= \frac{(2)(145/667)}{(0.12)(\Pi)(0.1)(0.05)^2} \\
+\end{align*}
+
+\begin{align*}
+    \llap{$\rightarrow$\hspace{50pt}} P_f = 3091154.8 Pa
+\end{align*}
+
+\section{\Large{\textbf{Question 7}}}
+
+\begin{align*}
+    \delta_D = \delta_D_1 + \delta_D_2
+\end{align*}
+
+\begin{align*}
+    \delta_D_1 = 2r_fP_f\Bigg[\frac{r_B^2+r_f^2}{E_H(r_B^2-r_f^2)}+\frac{\nu_H}{E_H}-\frac{r_A^2+r_f^2}{E_s(r_A^2-r_f^2)}-\frac{\nu_s}{E_s}\Bigg]
+\end{align*}
+\begin{center}
+Solving, given that $$\nu_s = 0$$$$\nu_H = 0$$$$r_A = 0$$we find that:
+\end{center}
+
+\begin{align*}
+    \delta_D_1 = 2(50/2)(3.092)\Bigg[\frac{50^2+25^2}{210000(50^2-25^2)}-\frac{25^2}{210000(-25^2)}\Bigg] \\
+    \delta_D_1 = 0.00195 mm
+\end{align*}
+
+\begin{align*}
+    \delta_D_2 = 4\sum R_A \\
+    \delta_D_2 = 4(0.0008+0.0016) \\
+    \delta_D_2 = 0.0096 mm
+\end{align*}
+
+\begin{align*}
+    \delta_D = 0.00195 + 0.0096 \\
+    \llap{$\rightarrow$\hspace{50pt}} \delta_D = 0.01155 mm
+\end{align*}n
+
+\section{\Large{\textbf{Question 8}}}
+\begin{align*}
+    \tau_m_a_x = \sigma_y = \mu_sp_f
+\end{align*}
+
+\begin{align*}
+    P_f = \frac{\sigma_y}{\mu_s} = \frac{400}{0.12} = 3333.33 MPa \\
+\end{align*}
+\begin{center}
+    \textit{From equations in question 7}
+\end{center}
+\begin{align*}
+    \delta_D_1 = (2)(25)(3333.33)(1.262*10^-^5) = 2.103 mm \\
+    \delta_D_2 = 4(0.0008+1600) = 0.0096 mm
+\end{align*}
+\begin{align*}
+    \llap{$\rightarrow$\hspace{50pt}} \delta_D = 2.113 mm
+\end{align*}
+
+
+\specialsection*{\underline{PROBLEM 2: A CHECK VALVE WITH MANUAL OVERRIDE}}
+\section{\Large{\textbf{Question 1}}}
+
+
+
+
+\begin{align*}
+    \\
+    \\
+    \\
+    \\
+    \\
+\end{align*}
+This is an example of a numbered first-level heading.
+
+\subsection{Question 1}
+This is an example of a numbered second-level heading.
+
+\subsection*{This is an unnumbered second-level section head}
+This is an example of an unnumbered second-level heading.
+
+\subsubsection{This is a numbered third-level section head}
+This is an example of a numbered third-level heading.
+
+\subsubsection*{This is an unnumbered third-level section head}
+This is an example of an unnumbered third-level heading.
+
+\begin{lemma}
+Let $f, g\in  A(X)$ and let $E$, $F$ be cozero
+sets in $X$.
+\begin{enumerate}
+\item If $f$ is $E$-regular and $F\subseteq E$, then $f$ is $F$-regular.
+
+\item If $f$ is $E$-regular and $F$-regular, then $f$ is $E\cup
+F$-regular.
+
+\item If $f(x)\ge c>0$ for all $x\in E$, then $f$ is $E$-regular.
+
+\end{enumerate}
+\end{lemma}
+
+The following is an example of a proof.
+
+\begin{proof} Set $j(\nu)=\max(I\backslash a(\nu))-1$. Then we have
+\[
+\sum_{i\notin a(\nu)}t_i\sim t_{j(\nu)+1}
+  =\prod^{j(\nu)}_{j=0}(t_{j+1}/t_j).
+\]
+Hence we have
+\begin{equation}
+\begin{split}
+\prod_\nu\biggl(\sum_{i\notin
+  a(\nu)}t_i\biggr)^{\abs{a(\nu-1)}-\abs{a(\nu)}}
+&\sim\prod_\nu\prod^{j(\nu)}_{j=0}
+  (t_{j+1}/t_j)^{\abs{a(\nu-1)}-\abs{a(\nu)}}\\
+&=\prod_{j\ge 0}(t_{j+1}/t_j)^{
+  \sum_{j(\nu)\ge j}(\abs{a(\nu-1)}-\abs{a(\nu)})}.
+\end{split}
+\end{equation}
+By definition, we have $a(\nu(j))\supset c(j)$. Hence, $\abs{c(j)}=n-j$
+implies (5.4). If $c(j)\notin a$, $a(\nu(j))c(j)$ and hence
+we have (5.5).
+\end{proof}
+
+\begin{quotation}
+This is an example of an `extract'. The magnetization $M_0$ of the Ising
+model is related to the local state probability $P(a):M_0=P(1)-P(-1)$.
+The equivalences are shown in Table~\ref{eqtable}.
+\end{quotation}
+
+\begin{table}[ht]
+\caption{}\label{eqtable}
+\renewcommand\arraystretch{1.5}
+\noindent\[
+\begin{array}{|c|c|c|}
+\hline
+&{-\infty}&{+\infty}\\
+\hline
+{f_+(x,k)}&e^{\sqrt{-1}kx}+s_{12}(k)e^{-\sqrt{-1}kx}&s_{11}(k)e^
+{\sqrt{-1}kx}\\
+\hline
+{f_-(x,k)}&s_{22}(k)e^{-\sqrt{-1}kx}&e^{-\sqrt{-1}kx}+s_{21}(k)e^{\sqrt
+{-1}kx}\\
+\hline
+\end{array}
+\]
+\end{table}
+
+\begin{definition}
+This is an example of a `definition' element.
+For $f\in A(X)$, we define
+\begin{equation}
+\mathcal{Z} (f)=\{E\in Z[X]: \text{$f$ is $E^c$-regular}\}.
+\end{equation}
+\end{definition}
+
+\begin{remark}
+This is an example of a `remark' element.
+For $f\in A(X)$, we define
+\begin{equation}
+\mathcal{Z} (f)=\{E\in Z[X]: \text{$f$ is $E^c$-regular}\}.
+\end{equation}
+\end{remark}
+
+\begin{example}
+This is an example of an `example' element.
+For $f\in A(X)$, we define
+\begin{equation}
+\mathcal{Z} (f)=\{E\in Z[X]: \text{$f$ is $E^c$-regular}\}.
+\end{equation}
+\end{example}
+
+\begin{xca}
+This is an example of the \texttt{xca} environment. This environment is
+used for exercises which occur within a section.
+\end{xca}
+
+The following is an example of a numbered list.
+
+\begin{enumerate}
+\item First item.
+In the case where in $G$ there is a sequence of subgroups
+\[
+G = G_0, G_1, G_2, \dots, G_k = e
+\]
+such that each is an invariant subgroup of $G_i$.
+
+\item Second item.
+Its action on an arbitrary element $X = \lambda^\alpha X_\alpha$ has the
+form
+\begin{equation}\label{eq:action}
+[e^\alpha X_\alpha, X] = e^\alpha \lambda^\beta
+[X_\alpha X_\beta] = e^\alpha c^\gamma_{\alpha \beta}
+ \lambda^\beta X_\gamma,
+\end{equation}
+
+\begin{enumerate}
+\item First subitem.
+\[
+- 2\psi_2(e) =  c_{\alpha \gamma}^\delta c_{\beta \delta}^\gamma
+e^\alpha e^\beta.
+\]
+
+\item Second subitem.
+\begin{enumerate}
+\item First subsubitem.
+In the case where in $G$ there is a sequence of subgroups
+\[
+G = G_0, G_1, G_2, \ldots, G_k = e
+\]
+such that each subgroup $G_{i+1}$ is an invariant subgroup of $G_i$ and
+each quotient group $G_{i+1}/G_{i}$ is abelian, the group $G$ is called
+\textit{solvable}.
+
+\item Second subsubitem.
+\end{enumerate}
+\item Third subitem.
+\end{enumerate}
+\item Third item.
+\end{enumerate}
+
+Here is an example of a cite. See \cite{A}.
+
+\begin{theorem}
+This is an example of a theorem.
+\end{theorem}
+
+\begin{theorem}[Marcus Theorem]
+This is an example of a theorem with a parenthetical note in the
+heading.
+\end{theorem}
+
+\begin{figure}[tb]
+%\blankbox{.6\columnwidth}{5pc}
+\includegraphics{lion.png}
+\caption{This is an example of a figure caption with text.}
+\label{firstfig}
+\end{figure}
+
+\begin{figure}[tb]
+%\blankbox{.75\columnwidth}{3pc}
+\includegraphics{lion.png}
+\caption{}\label{otherfig}
+\end{figure}
+
+\section{Some more list types}
+This is an example of a bulleted list.
+
+\begin{itemize}
+\item $\mathcal{J}_g$ of dimension $3g-3$;
+\item $\mathcal{E}^2_g=\{$Pryms of double covers of $C=\openbox$ with
+normalization of $C$ hyperelliptic of genus $g-1\}$ of dimension $2g$;
+\item $\mathcal{E}^2_{1,g-1}=\{$Pryms of double covers of
+$C=\openbox^H_{P^1}$ with $H$ hyperelliptic of genus $g-2\}$ of
+dimension $2g-1$;
+\item $\mathcal{P}^2_{t,g-t}$ for $2\le t\le g/2=\{$Pryms of double
+covers of $C=\openbox^{C'}_{C''}$ with $g(C')=t-1$ and $g(C'')=g-t-1\}$
+of dimension $3g-4$.
+\end{itemize}
+
+This is an example of a `description' list.
+
+\begin{description}
+\item[Zero case] $\rho(\Phi) = \{0\}$.
+
+\item[Rational case] $\rho(\Phi) \ne \{0\}$ and $\rho(\Phi)$ is
+contained in a line through $0$ with rational slope.
+
+\item[Irrational case] $\rho(\Phi) \ne \{0\}$ and $\rho(\Phi)$ is
+contained in a line through $0$ with irrational slope.
+\end{description}
+
+\bibliographystyle{amsplain}
+\begin{thebibliography}{10}
+
+\bibitem {A} T. Aoki, \textit{Calcul exponentiel des op\'erateurs
+microdifferentiels d'ordre infini.} I, Ann. Inst. Fourier (Grenoble)
+\textbf{33} (1983), 227--250.
+
+\bibitem {B} R. Brown, \textit{On a conjecture of Dirichlet},
+Amer. Math. Soc., Providence, RI, 1993.
+
+\bibitem {D} R. A. DeVore, \textit{Approximation of functions},
+Proc. Sympos. Appl. Math., vol. 36,
+Amer. Math. Soc., Providence, RI, 1986, pp. 34--56.
+
+\end{thebibliography}
+
+\end{document}
+
+%------------------------------------------------------------------------------
+% End of journal.tex
+%------------------------------------------------------------------------------
